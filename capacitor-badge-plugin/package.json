@@ -1,6 +1,6 @@
 {
   "name": "capacitor-badge-plugin",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Capacitor plugin to set and clear the badge on iOS (and Android if supported)",
   "main": "dist/plugin.js",
   "module": "dist/esm/index.js",

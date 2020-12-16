@@ -10,15 +10,15 @@
 ## Usage
 
 ```typescript
-import "capacitor-badge-plugin";
-import { Plugins } from "@capacitor/core";
+import 'capacitor-badge-plugin';
+import { Plugins } from '@capacitor/core';
 
 const { Badge } = Plugins;
 
 function updateBadgeCount() {
   Badge.hasPermission()
-    .then((value) => (value.success ? value : Badge.requestPermission()))
-    .then((res) => (res.success ? Badge.setBadgeCount({ count: 12 }) : res));
+    .then(value => (value.success ? value : Badge.requestPermission()))
+    .then(res => (res.success ? Badge.setBadgeCount({ count: 12 }) : res));
 }
 ```
 
@@ -33,15 +33,21 @@ Register the badge plugin in your Capacitor app in the `MainActivity.java`.
 import com.seppedev.plugins.badge.Badge; // << #1 Add import
 
 public class MainActivity extends BridgeActivity {
+
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
     // Initializes the Bridge
-    this.init(savedInstanceState, new ArrayList<Class<? extends Plugin>>() {{
-      // Additional plugins you've installed go here
-      add(Badge.class); // << #2 Register plugin
-    }});
+    this.init(
+        savedInstanceState,
+        new ArrayList<Class<? extends Plugin>>() {
+          {
+            // Additional plugins you've installed go here
+            add(Badge.class); // << #2 Register plugin
+          }
+        }
+      );
   }
 }
 
